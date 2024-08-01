@@ -7,7 +7,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.get('/api/data', (req, res) => {
+app.get('/', (req, res) => {
     const filePath = path.join(__dirname, 'data', 'dummyData.json');
     fs.readFile(filePath, 'utf8', (err, data) => {
         if (err) {
