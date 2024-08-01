@@ -15,6 +15,14 @@ This project is a Node.js API server built with Express. It provides endpoints t
 - Node.js (v14 or higher)
 - npm (Node Package Manager)
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [API Endpoints](#api-endpoints)
+- [Examples](#examples)
+- [Notes](#notes)
+
 ## Installation
 
 1. **Clone the Repository**
@@ -29,13 +37,14 @@ This project is a Node.js API server built with Express. It provides endpoints t
 
 3. **Install Dependencies**
 
-    First, install the project dependencies defined in package.json.
-
-    Then, install express and axios if they are not already listed in package.json.     
-
+    First, install the project dependencies defined in `package.json`.
     ```sh
     npm install
+    ```
+    Then, install `express` and `axios` if they are not already listed in `package.json`.     
+    ```sh
     npm install express axios
+    ```
 
 4. **Verify Installation**
 
@@ -74,6 +83,23 @@ You can use Postman to test the API endpoints. Here’s how:
 4. Add **Query Parameters** for filtering and sorting, if needed.
 5. Click **"Send"** to see the response.
 
+
+## API Endpoints
+
+### Get Data
+
+- **Endpoint:** `/`
+- **Method:** `GET`
+- **Query Parameters:**
+  - **Filtering:** Filter by any field in the data. For example:
+    - `?name=Adeel` - Filters by name
+    - `?language=Sindhi` - Filters by language
+    - `?name=Adeel&language=Sindhi` - Filters by multiple fields
+  - **Sorting:** Sort by one or more fields. For example:
+    - `?sortBy=name` - Sorts by name
+    - `?sortBy=name,version` - Sorts by name first, then by version
+    - `?sortBy=name,version&sortOrder=desc` - Sorts by name first, then by version in descending order
+
 ## Example Requests
 
 - Fetch all data:
@@ -91,6 +117,14 @@ You can use Postman to test the API endpoints. Here’s how:
 - Sort by `name` in ascending order:
     ```sh
     GET http://localhost:3000/api/data?sortBy=name&sortOrder=asc
+
+- Filter by multiple fields and sort:
+    ```sh
+    GET http://localhost:3000/?name=Adeel&sortBy=name,version&sortOrder=desc
+
+- Sort by multiple fields:
+    ```sh
+    GET http://localhost:3000/?sortBy=name,version&sortOrder=asc
 
 ## Contributing 
 Feel free to fork the repository and submit pull requests. For any issues or feature requests, please open an issue on the GitHub repository.
